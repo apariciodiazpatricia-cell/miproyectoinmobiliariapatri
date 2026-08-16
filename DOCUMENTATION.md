@@ -55,7 +55,8 @@ c:/Proyectos/miproyectoinmobiliariapatri/
 │   ├── components/
 │   │   ├── layout/                 # Elementos fijos de navegación y pie de página
 │   │   │   ├── Navbar.jsx          # Barra de navegación con logo, enlaces y botón CTA
-│   │   │   └── Footer.jsx          # Pie de página con enlaces, contacto y copyright
+│   │   │   ├── Footer.jsx          # Pie de página con enlaces, contacto y copyright
+│   │   │   └── ScrollToTop.jsx     # Reseteo automático de scroll a (0, 0) en cambios de ruta SPA
 │   │   │
 │   │   ├── sections/               # Secciones modulares e independientes
 │   │   │   ├── Hero.jsx            # Cabecera de Inicio
