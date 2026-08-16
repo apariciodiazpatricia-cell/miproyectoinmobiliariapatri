@@ -775,10 +775,136 @@
   width: 28px;
 }
 
-.property-listing .section-title {
-  color: #111111;
-  font-weight: 900;
+/* ══════════════════════════════════════
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+══════════════════════════════════════ */
+
+/* ── Tablets (max-width: 1024px) ── */
+@media (max-width: 1024px) {
+  /* Grids to 2 columns */
+  .properties__grid,
+  .property-listing__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .agents-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .expertise__inner,
+  .agents-hero__inner,
+  .agents-stats__inner,
+  .contact-main__inner,
+  .booking-main__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .agents-stats__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .agents-services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
+
+/* ── Mobiles (max-width: 768px) ── */
+@media (max-width: 768px) {
+  /* Global section paddings */
+  .hero,
+  .expertise,
+  .team,
+  .properties,
+  .cta-section,
+  .listings-hero,
+  .property-listing,
+  .agents-hero,
+  .agents-stats,
+  .agents-grid-section,
+  .agents-services,
+  .contact-hero,
+  .contact-main,
+  .contact-map-section,
+  .contact-faq,
+  .booking-hero,
+  .booking-main {
+    padding: 4rem 1.25rem;
+  }
+
+  .hero {
+    padding-top: 100px;
+    min-height: auto;
+  }
+
+  .listings-hero,
+  .agents-hero,
+  .contact-hero,
+  .booking-hero {
+    padding-top: 110px;
+    min-height: auto;
+  }
+
+  /* Stats bar */
+  .stats-bar__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Grids to 1 column */
+  .properties__grid,
+  .property-listing__grid,
+  .agents-grid,
+  .agents-services__grid,
+  .agents-stats__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Team grid on Home (mobile reset) */
+  .team__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team__grid .team-card:nth-child(n) {
+    grid-column: auto;
+  }
+
+  /* Forms single column */
+  .contact-form__row,
+  .booking-form__row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-wrapper,
+  .booking-form-wrapper {
+    padding: 1.5rem;
+  }
+
+  /* Headers flex wrap */
+  .team__header,
+  .properties__header,
+  .property-listing__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .expertise__image-wrapper img {
+    height: 320px;
+  }
+
+  .contact-map-wrapper {
+    height: 320px;
+  }
+
+  .contact-map__badge {
+    position: static;
+    margin: 1rem;
+  }
+}
+
 
 .property-listing__inner {
   max-width: 1200px;
