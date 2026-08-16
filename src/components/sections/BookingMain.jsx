@@ -6,11 +6,15 @@ import { bookingSteps } from '../../data/bookingSteps'
  * BookingMain — Interactive Booking form + How it Works matching Figma
  */
 function BookingMain() {
+    const defaultProperty = (featuredProperties && featuredProperties.length > 0)
+        ? featuredProperties[0].title
+        : 'Piso en Ronda'
+
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
         phone: '',
-        propertyId: featuredProperties[0]?.title || '',
+        propertyId: defaultProperty,
         date: '',
         timeSlot: '10:00 - 12:00',
         notes: '',
