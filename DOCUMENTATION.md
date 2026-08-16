@@ -181,7 +181,37 @@ graph TD
 
 ---
 
-## ⚡ 7. Comandos para Ejecutar el Proyecto
+## 🚀 8. Despliegue en Vercel y Solución al Error 404 en Rutas SPA
+
+### ❓ El Problema:
+En aplicaciones **SPA (Single Page Applications)** creadas con React + Vite y `react-router-dom`:
+- Cuando el usuario navega haciendo clic, React gestiona las rutas en el navegador.
+- Pero al **recargar la página (F5)** o **entrar directamente a una URL** (como `/pisos`, `/agentes`, `/contacto` o `/reservar`), el servidor de Vercel busca un archivo físico llamado `pisos.html` en el servidor, no lo encuentra y devuelve un error **404: NOT_FOUND**.
+
+---
+
+### 💡 La Solución (Rewrites en `vercel.json`):
+Para resolverlo en este y en cualquier futuro proyecto:
+1. Crea un archivo llamado `vercel.json` en la **raíz del proyecto** (al mismo nivel que `package.json`).
+2. Pega exactamente esta configuración:
+
+```json
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+```
+
+### 🧠 ¿Qué hace este archivo?
+Le indica al servidor de Vercel que **cualquier petición a cualquier ruta (`/(.*)`)** sea redirigida internamente a `index.html`. Una vez cargado `index.html`, **React Router** toma el control en el navegador del cliente y renderiza la página correcta sin dar error 404.
+
+---
+
+## ⚡ 9. Comandos para Ejecutar el Proyecto
 
 ```bash
 # Instalar dependencias (si se descarga en un entorno nuevo)
@@ -193,3 +223,4 @@ npm run dev
 # Compilar para producción
 npm run build
 ```
+
