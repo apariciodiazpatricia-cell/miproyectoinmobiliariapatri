@@ -1,0 +1,45 @@
+/* ─────────────────────────────────────────────────────
+   Design Tokens
+   All CSS custom properties (variables) for the project
+───────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* ── Brand colors ── */
+  --color-primary:      #b7ff00;
+  --color-primary-dark: #8fca00;
+  --color-primary-glow: rgba(183, 255, 0, 0.15);
+
+  /* ── Surface / Background colors ── */
+  --color-bg:        #111111;
+  --color-surface-1: #1a1a1a;
+  --color-surface-2: #222222;
+  --color-surface-3: #2a2a2a;
+
+  /* ── Text colors ── */
+  --color-text-primary:   #ffffff;
+  --color-text-secondary: #aaaaaa;
+  --color-text-muted:     #888888;
+
+  /* ── Border ── */
+  --color-border: #2e2e2e;
+
+  /* ── Typography ── */
+  --font-family: 'Inter', Arial, sans-serif;
+
+  /* ── Border radius scale ── */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+
+  /* ── Shadows ── */
+  --shadow-card: 0 4px 32px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 40px rgba(183, 255, 0, 0.2);
+
+  /* ── Transitions ── */
+  --transition-fast: 0.15s ease;
+  --transition:      0.25s ease;
+  --transition-slow: 0.4s ease;
+}
