@@ -1,24 +1,23 @@
 /* ─────────────────────────────────────────────────────
    Section & UI Component Styles
    Hero, StatsBar, Expertise, Team, Properties, CtaSection
-   Avatar, StatItem, PropertyCard, TeamCard
+   PropertyListing, Agents, Contact, Booking
 ───────────────────────────────────────────────────── */
 
 /* ══════════════════════════════════════
-   HERO SECTION
+   HERO SECTION (HOME)
 ══════════════════════════════════════ */
 .hero {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
-  padding-top: 80px;
-  /* offset for fixed navbar */
+  padding-top: 72px;
   background-color: var(--color-bg);
   position: relative;
   overflow: hidden;
 }
 
-/* Radial glow accent in the top-right */
 .hero::before {
   content: '';
   position: absolute;
@@ -61,7 +60,7 @@
 }
 
 .hero__title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -69,7 +68,6 @@
   margin-bottom: 1.5rem;
 }
 
-/* Highlight word in title */
 .hero__title em {
   font-style: normal;
   color: var(--color-primary);
@@ -89,12 +87,11 @@
   flex-wrap: wrap;
 }
 
-/* Right column: image */
 .hero__image-wrapper {
   position: relative;
+  width: 100%;
 }
 
-/* Gradient border effect around the image */
 .hero__image-wrapper::before {
   content: '';
   position: absolute;
@@ -114,7 +111,6 @@
   z-index: 1;
 }
 
-/* Floating info badge over the image */
 .hero__badge {
   position: absolute;
   bottom: 2rem;
@@ -162,7 +158,6 @@
   gap: 2rem;
 }
 
-/* ── StatItem UI component ── */
 .stat-item {
   display: flex;
   flex-direction: column;
@@ -172,7 +167,6 @@
   transition: border-color var(--transition);
 }
 
-/* First stat uses the accent color by default */
 .stat-item:first-child {
   border-left-color: var(--color-primary);
 }
@@ -200,7 +194,7 @@
 }
 
 /* ══════════════════════════════════════
-   EXPERTISE SECTION (LIGHT GREY CONTRAST)
+   EXPERTISE SECTION
 ══════════════════════════════════════ */
 .expertise {
   padding: 7rem 5%;
@@ -209,7 +203,7 @@
 }
 
 .expertise .section-eyebrow {
-  color: #4d7c0f; /* darker, high-contrast green for light background */
+  color: #4d7c0f;
   font-weight: 900;
   letter-spacing: 0.16em;
 }
@@ -240,6 +234,7 @@
 
 .expertise__image-wrapper {
   position: relative;
+  width: 100%;
 }
 
 .expertise__image-wrapper img {
@@ -261,7 +256,6 @@
     0 14px 25px -6px rgba(0, 0, 0, 0.18);
 }
 
-/* Floating label on the image */
 .expertise__year-tag {
   position: absolute;
   top: 2rem;
@@ -277,7 +271,6 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* ── FeatureCard UI component on light background ── */
 .feature-cards {
   display: flex;
   flex-direction: column;
@@ -336,7 +329,7 @@
 }
 
 /* ══════════════════════════════════════
-   TEAM SECTION (CLEAN WHITE BACKGROUND)
+   TEAM SECTION (HOME)
 ══════════════════════════════════════ */
 .team {
   padding: 7rem 5%;
@@ -384,35 +377,26 @@
   margin-bottom: 3.5rem;
 }
 
-/*
-  Team grid — 5 cards layout:
-  Row 1: [card 1][card 2][card 3]  (3 × span 2 in a 6-col grid)
-  Row 2:   [empty][card 4][card 5][empty]  (centred)
-*/
 .team__grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 1.5rem;
 }
 
-/* First row: 3 cards, each spans 2 of the 6 columns */
 .team__grid .team-card:nth-child(1),
 .team__grid .team-card:nth-child(2),
 .team__grid .team-card:nth-child(3) {
   grid-column: span 2;
 }
 
-/* Second row: 4th card starts at column 2 (leaves 1 empty col on left) */
 .team__grid .team-card:nth-child(4) {
   grid-column: 2 / span 2;
 }
 
-/* Second row: 5th card starts at column 4 (leaves 1 empty col on right) */
 .team__grid .team-card:nth-child(5) {
   grid-column: 4 / span 2;
 }
 
-/* ── TeamCard UI component on white background ── */
 .team-card {
   background-color: #f8fafc;
   border: 1px solid #e2e8f0;
@@ -477,7 +461,7 @@
 }
 
 /* ══════════════════════════════════════
-   PROPERTIES SECTION (SOFT GREY CONTRAST)
+   PROPERTIES SECTION (HOME)
 ══════════════════════════════════════ */
 .properties {
   padding: 7rem 5%;
@@ -533,7 +517,6 @@
   gap: 1.5rem;
 }
 
-/* ── PropertyCard UI component ── */
 .property-card {
   background-color: var(--color-surface-1);
   border: 1px solid var(--color-border);
@@ -625,7 +608,6 @@
   list-style: none;
 }
 
-/* ── PropertyDetail atom ── */
 .property-detail {
   display: flex;
   align-items: center;
@@ -650,7 +632,6 @@
   overflow: hidden;
 }
 
-/* Radial glow in the centre */
 .cta-section::before {
   content: '';
   position: absolute;
@@ -703,17 +684,16 @@
 ══════════════════════════════════════ */
 .listings-hero {
   position: relative;
-  min-height: 60vh;
+  min-height: 50vh;
   display: flex;
   align-items: center;
-  padding-top: 80px;
+  padding-top: 72px;
   background-image: url('/hero_apartment.jpg');
   background-size: cover;
   background-position: center;
   overflow: hidden;
 }
 
-/* Dark gradient overlay so text is readable over the photo */
 .listings-hero__overlay {
   position: absolute;
   inset: 0;
@@ -732,7 +712,7 @@
 }
 
 .listings-hero__title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -780,137 +760,6 @@
   font-weight: 900;
 }
 
-/* ══════════════════════════════════════
-   RESPONSIVE DESIGN (MEDIA QUERIES)
-══════════════════════════════════════ */
-
-/* ── Tablets (max-width: 1024px) ── */
-@media (max-width: 1024px) {
-  /* Grids to 2 columns */
-  .properties__grid,
-  .property-listing__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .agents-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .expertise__inner,
-  .agents-hero__inner,
-  .agents-stats__inner,
-  .contact-main__inner,
-  .booking-main__inner {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .agents-stats__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .agents-services__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ── Mobiles (max-width: 768px) ── */
-@media (max-width: 768px) {
-  /* Global section paddings */
-  .hero,
-  .expertise,
-  .team,
-  .properties,
-  .cta-section,
-  .listings-hero,
-  .property-listing,
-  .agents-hero,
-  .agents-stats,
-  .agents-grid-section,
-  .agents-services,
-  .contact-hero,
-  .contact-main,
-  .contact-map-section,
-  .contact-faq,
-  .booking-hero,
-  .booking-main {
-    padding: 4rem 1.25rem;
-  }
-
-  .hero {
-    padding-top: 100px;
-    min-height: auto;
-  }
-
-  .listings-hero,
-  .agents-hero,
-  .contact-hero,
-  .booking-hero {
-    padding-top: 110px;
-    min-height: auto;
-  }
-
-  /* Stats bar */
-  .stats-bar__grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  /* Grids to 1 column */
-  .properties__grid,
-  .property-listing__grid,
-  .agents-grid,
-  .agents-services__grid,
-  .agents-stats__grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  /* Team grid on Home (mobile reset) */
-  .team__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .team__grid .team-card:nth-child(n) {
-    grid-column: auto;
-  }
-
-  /* Forms single column */
-  .contact-form__row,
-  .booking-form__row {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-form-wrapper,
-  .booking-form-wrapper {
-    padding: 1.5rem;
-  }
-
-  /* Headers flex wrap */
-  .team__header,
-  .properties__header,
-  .property-listing__header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.2rem;
-    margin-bottom: 2rem;
-  }
-
-  .expertise__image-wrapper img {
-    height: 320px;
-  }
-
-  .contact-map-wrapper {
-    height: 320px;
-  }
-
-  .contact-map__badge {
-    position: static;
-    margin: 1rem;
-  }
-}
-
-
 .property-listing__inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -925,7 +774,6 @@
   margin-bottom: 2rem;
 }
 
-/* Live result count */
 .property-listing__count {
   font-size: 0.85rem;
   color: #64748b;
@@ -937,7 +785,6 @@
   font-size: 1.15rem;
 }
 
-/* ── Neighborhood filter tab bar (PropertyFilter) ── */
 .property-filter {
   display: flex;
   gap: 0.5rem;
@@ -969,7 +816,6 @@
   transform: translateY(-1px);
 }
 
-/* Active / selected filter tab */
 .property-filter__btn--active {
   background-color: #111111;
   border-color: #111111;
@@ -982,14 +828,12 @@
   background-color: #000000;
 }
 
-/* ── Properties grid on grey background ── */
 .property-listing__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
-/* Property cards on light/grey page */
 .property-listing .property-card {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
@@ -1025,7 +869,6 @@
   color: #64748b;
 }
 
-/* Empty state — shown when no properties match the active filter */
 .property-listing__empty {
   grid-column: 1 / -1;
   text-align: center;
@@ -1038,10 +881,10 @@
    AGENTS PAGE — HERO
 ══════════════════════════════════════ */
 .agents-hero {
-  min-height: 50vh;
+  min-height: 45vh;
   display: flex;
   align-items: center;
-  padding: 120px 5% 4rem;
+  padding: 110px 5% 4rem;
   background-color: var(--color-bg);
 }
 
@@ -1056,7 +899,7 @@
 }
 
 .agents-hero__title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -1072,6 +915,10 @@
   max-width: 460px;
 }
 
+.agents-hero__image-wrapper {
+  width: 100%;
+}
+
 .agents-hero__image-wrapper img {
   width: 100%;
   height: 340px;
@@ -1081,7 +928,7 @@
 }
 
 /* ══════════════════════════════════════
-   AGENTS PAGE — STATS (LIGHT BANNER)
+   AGENTS PAGE — STATS
 ══════════════════════════════════════ */
 .agents-stats {
   background-color: #ededed;
@@ -1142,7 +989,7 @@
 }
 
 /* ══════════════════════════════════════
-   AGENTS PAGE — 5 CARDS GRID
+   AGENTS PAGE — CARDS GRID
 ══════════════════════════════════════ */
 .agents-grid-section {
   padding: 6rem 5%;
@@ -1247,7 +1094,7 @@
 }
 
 /* ══════════════════════════════════════
-   AGENTS PAGE — SERVICES (01, 02, 03)
+   AGENTS PAGE — SERVICES
 ══════════════════════════════════════ */
 .agents-services {
   padding: 5rem 5% 6rem;
@@ -1308,10 +1155,10 @@
    CONTACT PAGE — HERO
 ══════════════════════════════════════ */
 .contact-hero {
-  min-height: 40vh;
+  min-height: 35vh;
   display: flex;
   align-items: center;
-  padding: 120px 5% 3.5rem;
+  padding: 110px 5% 3.5rem;
   background-color: var(--color-bg);
 }
 
@@ -1322,7 +1169,7 @@
 }
 
 .contact-hero__title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -1339,7 +1186,7 @@
 }
 
 /* ══════════════════════════════════════
-   CONTACT PAGE — MAIN BLOCK (WHITE BG)
+   CONTACT PAGE — MAIN BLOCK
 ══════════════════════════════════════ */
 .contact-main {
   background-color: #ffffff;
@@ -1356,7 +1203,6 @@
   align-items: flex-start;
 }
 
-/* Left: Info */
 .contact-info__title {
   font-size: 2rem;
   font-weight: 900;
@@ -1453,7 +1299,6 @@
   transform: translateY(-2px);
 }
 
-/* Right: Form */
 .contact-form-wrapper {
   background-color: #f8fafc;
   padding: 2.5rem;
@@ -1501,7 +1346,7 @@
   width: 100%;
   padding: 0.75rem 1rem;
   font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 16px;
   color: #111111;
   background-color: #ffffff;
   border: 1px solid #cbd5e1;
@@ -1742,10 +1587,10 @@
    BOOKING PAGE — HERO
 ══════════════════════════════════════ */
 .booking-hero {
-  min-height: 40vh;
+  min-height: 35vh;
   display: flex;
   align-items: center;
-  padding: 120px 5% 3.5rem;
+  padding: 110px 5% 3.5rem;
   background-color: var(--color-bg);
 }
 
@@ -1756,7 +1601,7 @@
 }
 
 .booking-hero__title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -1773,7 +1618,7 @@
 }
 
 /* ══════════════════════════════════════
-   BOOKING PAGE — MAIN BLOCK (WHITE BG)
+   BOOKING PAGE — MAIN BLOCK
 ══════════════════════════════════════ */
 .booking-main {
   background-color: #ffffff;
@@ -1790,7 +1635,6 @@
   align-items: flex-start;
 }
 
-/* Left: Form */
 .booking-form-wrapper {
   background-color: #f8fafc;
   padding: 2.5rem;
@@ -1845,7 +1689,7 @@
   width: 100%;
   padding: 0.75rem 1rem;
   font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 16px;
   color: #111111;
   background-color: #ffffff;
   border: 1px solid #cbd5e1;
@@ -1923,7 +1767,6 @@
   line-height: 1.6;
 }
 
-/* Right: Process & Photo */
 .booking-info {
   display: flex;
   flex-direction: column;
@@ -1987,7 +1830,6 @@
   object-fit: cover;
 }
 
-/* Dark Help Card */
 .booking-help-card {
   background-color: var(--color-surface-1);
   border: 1px solid var(--color-border);
@@ -2022,4 +1864,226 @@
 
 .booking-help-card__link:hover {
   opacity: 0.8;
+}
+
+/* ═════════════════════════════════════════════════════
+   RESPONSIVE DESIGN (DEFINED AT THE END FOR CORRECT CASCADE)
+═════════════════════════════════════════════════════ */
+
+/* ── Tablets & Medium Screens (max-width: 1024px) ── */
+@media (max-width: 1024px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    padding: 3rem 5%;
+  }
+
+  .hero__image-wrapper img {
+    height: 400px;
+  }
+
+  .stats-bar__inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .properties__grid,
+  .property-listing__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team__grid .team-card:nth-child(1),
+  .team__grid .team-card:nth-child(2),
+  .team__grid .team-card:nth-child(3),
+  .team__grid .team-card:nth-child(4),
+  .team__grid .team-card:nth-child(5) {
+    grid-column: auto;
+  }
+
+  .expertise__inner,
+  .agents-hero__inner,
+  .agents-stats__inner,
+  .contact-main__inner,
+  .booking-main__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .agents-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .agents-stats__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .agents-services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── Mobile Devices & iPhone (max-width: 768px) ── */
+@media (max-width: 768px) {
+  /* Global section paddings for fluid mobile reading */
+  .hero,
+  .expertise,
+  .team,
+  .properties,
+  .cta-section,
+  .listings-hero,
+  .property-listing,
+  .agents-hero,
+  .agents-stats,
+  .agents-grid-section,
+  .agents-services,
+  .contact-hero,
+  .contact-main,
+  .contact-map-section,
+  .contact-faq,
+  .booking-hero,
+  .booking-main {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .hero {
+    padding-top: 90px;
+    min-height: auto;
+  }
+
+  .hero__inner {
+    padding: 1.5rem 0;
+    gap: 2.5rem;
+  }
+
+  .hero__image-wrapper img {
+    height: 320px;
+  }
+
+  .hero__badge {
+    left: 1rem;
+    bottom: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
+
+  .hero__badge-value {
+    font-size: 1.5rem;
+  }
+
+  .listings-hero,
+  .agents-hero,
+  .contact-hero,
+  .booking-hero {
+    padding-top: 100px;
+    min-height: auto;
+  }
+
+  .stats-bar {
+    padding: 2rem 1.25rem;
+  }
+
+  .stats-bar__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .stat-item {
+    padding-left: 1rem;
+  }
+
+  .stat-item__value {
+    font-size: 1.8rem;
+  }
+
+  /* Single column grids for mobile */
+  .properties__grid,
+  .property-listing__grid,
+  .agents-grid,
+  .agents-services__grid,
+  .team__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .agents-stats__grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .team__grid .team-card:nth-child(n) {
+    grid-column: auto;
+  }
+
+  /* Form columns to single column */
+  .contact-form__row,
+  .booking-form__row {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .contact-form-wrapper,
+  .booking-form-wrapper {
+    padding: 1.5rem;
+  }
+
+  /* Headers flex wrap */
+  .team__header,
+  .properties__header,
+  .property-listing__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .expertise__image-wrapper img {
+    height: 280px;
+  }
+
+  .expertise__year-tag {
+    right: 0.5rem;
+    top: 1rem;
+  }
+
+  .contact-map-wrapper {
+    height: 280px;
+  }
+
+  .contact-map__badge {
+    position: static;
+    margin-top: 1rem;
+  }
+}
+
+/* ── Small Mobile / iPhone SE (max-width: 480px) ── */
+@media (max-width: 480px) {
+  .stats-bar__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__actions,
+  .cta-section__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero__actions .btn-primary,
+  .hero__actions .btn-outline,
+  .cta-section__actions .btn-primary,
+  .cta-section__actions .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .property-filter {
+    gap: 0.4rem;
+  }
+
+  .property-filter__btn {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.75rem;
+  }
 }

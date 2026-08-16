@@ -139,6 +139,7 @@ graph TD
     E --> F[Fase 6: Página de Contacto, Mapa y FAQs]
     F --> G[Fase 7: Página de Reservar Cita]
     G --> H[Fase 8: Pulido de Estilos, Contraste y Tipografía]
+    H --> I[Fase 9: Arquitectura Responsive Total & Compatibilidad iOS / iPhone]
 ```
 
 ### Detalle de las Fases:
@@ -165,6 +166,13 @@ graph TD
 7. **Fase 7 — Página de Reservas:**
    - Formulario de selección de piso conectado dinámicamente al catálogo, validación de fechas (mínimo hoy) y franjas horarias.
    - Explicación de los 4 pasos del proceso de visita.
+8. **Fase 8 — Pulido de Estilos, Contraste y Tipografía:**
+   - Refinamiento de contrastes en fondos claros y oscuros.
+   - Micro-animaciones en tarjetas y botones.
+9. **Fase 9 — Arquitectura Responsive Total & Compatibilidad iOS / iPhone:**
+   - Reestructuración de la cascada CSS (media queries al final del archivo).
+   - Menú hamburguesa interactivo con efecto *glassmorphism* en `Navbar.jsx`.
+   - Prevención de auto-zoom y desbordamientos horizontales en dispositivos móviles de Apple.
 
 ---
 
@@ -178,6 +186,27 @@ graph TD
 | `--color-surface-light` | `#ffffff` | Fondo blanco puro para secciones de equipo y formularios |
 | `--color-surface-grey` | `#ededed` | Fondo gris suave para romper la monotonía y dar contraste |
 | `--color-border` | `rgba(255, 255, 255, 0.1)` / `#e2e8f0` | Bordes limpios en modo oscuro y claro |
+
+---
+
+## 📱 7. Arquitectura Responsive y Compatibilidad iOS / iPhone
+
+Para garantizar una experiencia fluida e impecable en smartphones y especialmente en dispositivos Apple (iOS Safari), se implementaron las siguientes directrices arquitectónicas:
+
+### 1. El Principio de Cascada CSS para Media Queries
+En CSS, a igual especificidad de selector, **la regla que se declara al final del archivo es la que prevalece**. 
+- Todas las `@media (max-width: 1024px)`, `@media (max-width: 768px)` y `@media (max-width: 480px)` están consolidadas al **final absoluto** de [`sections.css`](file:///c:/Proyectos/miproyectoinmobiliariapatri/src/styles/sections.css) y [`layout.css`](file:///c:/Proyectos/miproyectoinmobiliariapatri/src/styles/layout.css).
+- Esto garantiza que las cuadrículas de 3 o 5 columnas de escritorio nunca sobrescriban la vista de 1 sola columna para móvil.
+
+### 2. Menú Hamburguesa & Drawer Móvil Reactivo
+- En [`Navbar.jsx`](file:///c:/Proyectos/miproyectoinmobiliariapatri/src/components/layout/Navbar.jsx), un botón accesible con animación CSS transforma las 3 barras en cruz al abrirse.
+- El menú móvil se superpone a pantalla completa con fondo translúcido desenfocado (`backdrop-filter: blur(16px)`), garantizando un diseño limpio y cerrándose automáticamente al pulsar cualquier enlace.
+
+### 3. Optimizaciones Específicas para iOS Safari
+- **Eliminación del Auto-zoom en Inputs:** iOS Safari fuerza un zoom no deseado al enfocar `<input>` o `<select>` con fuente menor a `16px`. Se definió `font-size: 16px` en [`base.css`](file:///c:/Proyectos/miproyectoinmobiliariapatri/src/styles/base.css) para todos los campos de formulario.
+- **Ajuste de Tipografía en Rotación:** `-webkit-text-size-adjust: 100%` evita que el navegador redimensione arbitrariamente los textos al cambiar entre horizontal y vertical.
+- **Soporte de Viewport Dinámico:** Empleo de `min-height: 100dvh` (Dynamic Viewport Height) para compensar la barra de herramientas retráctil de Safari móvil.
+- **Control de Desbordamiento:** `overflow-x: hidden` en `body` y reubicación de badges absolutos (como `.hero__badge`) para eliminar el deslizamiento horizontal fantasma.
 
 ---
 
