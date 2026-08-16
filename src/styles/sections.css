@@ -775,6 +775,11 @@
   width: 28px;
 }
 
+.property-listing .section-title {
+  color: #111111 !important;
+  font-weight: 900;
+}
+
 /* ══════════════════════════════════════
    RESPONSIVE DESIGN (MEDIA QUERIES)
 ══════════════════════════════════════ */
