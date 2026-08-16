@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import TeamCard from '../ui/TeamCard'
 import { teamMembers } from '../../data/team'
 
@@ -12,7 +13,7 @@ function Team() {
             <p className="section-eyebrow">Las personas detrás de Nido</p>
             <h2 className="section-title">Conoce a nuestro equipo</h2>
           </div>
-          <a href="/agentes" className="btn-outline">Ver todos →</a>
+          <Link to="/agentes" className="btn-outline">Ver todos →</Link>
         </div>
 
         <div className="team__grid">

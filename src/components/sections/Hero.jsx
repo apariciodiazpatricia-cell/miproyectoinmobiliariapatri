@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 /** Hero — full-viewport opening section with headline, CTA and property image */
 function Hero() {
   return (
@@ -21,8 +23,8 @@ function Hero() {
           </p>
 
           <div className="hero__actions">
-            <a href="/pisos" className="btn-primary">Ver pisos →</a>
-            <a href="/reservar" className="btn-outline">Reservar cita</a>
+            <Link to="/pisos" className="btn-primary">Ver pisos →</Link>
+            <Link to="/reservar" className="btn-outline">Reservar cita</Link>
           </div>
         </div>
 

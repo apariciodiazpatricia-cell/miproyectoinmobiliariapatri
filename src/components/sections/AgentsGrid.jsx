@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { teamMembers } from '../../data/team'
 
 /**
@@ -28,9 +29,9 @@ function AgentsGrid() {
                                 <p className="agent-card__role">{member.jobTitle}</p>
                                 <p className="agent-card__specialty">{member.specialty}</p>
 
-                                <a href="/contacto" className="agent-card__link">
+                                <Link to="/contacto" className="agent-card__link">
                                     CONTACTAR →
-                                </a>
+                                </Link>
                             </div>
                         </article>
                     ))}

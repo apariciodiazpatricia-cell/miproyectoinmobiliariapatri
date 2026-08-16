@@ -221,9 +221,9 @@ function BookingMain() {
                             Si necesitas ayuda inmediata o prefieres hablar con nosotros directamente,
                             contáctanos sin compromiso.
                         </p>
-                        <a href="/contacto" className="booking-help-card__link">
+                        <Link to="/contacto" className="booking-help-card__link">
                             CONTACTAR →
-                        </a>
+                        </Link>
                     </div>
                 </div>
 

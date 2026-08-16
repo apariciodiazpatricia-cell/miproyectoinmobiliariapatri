@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 /** Footer — site-wide footer with brand info, contact details and nav links */
 function Footer() {
   return (
@@ -14,9 +16,9 @@ function Footer() {
             Especialistas en alojamiento para universitarios desde 2019.
           </p>
           <div className="footer__social-links">
-            <a href="#" className="footer__social-link" aria-label="Instagram">📷</a>
-            <a href="#" className="footer__social-link" aria-label="Facebook">👤</a>
-            <a href="#" className="footer__social-link" aria-label="WhatsApp">💬</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="Instagram">📷</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="Facebook">👤</a>
+            <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="WhatsApp">💬</a>
           </div>
         </div>
 
@@ -34,11 +36,11 @@ function Footer() {
         <div>
           <h3 className="footer__column-heading">Secciones</h3>
           <nav className="footer__nav-links" aria-label="Footer navigation">
-            <a href="/"         className="footer__nav-link">Inicio</a>
-            <a href="/pisos"    className="footer__nav-link">Pisos disponibles</a>
-            <a href="/agentes"  className="footer__nav-link">Nuestro equipo</a>
-            <a href="/contacto" className="footer__nav-link">Contacto</a>
-            <a href="/reservar" className="footer__nav-link">Reservar cita</a>
+            <Link to="/"         className="footer__nav-link">Inicio</Link>
+            <Link to="/pisos"    className="footer__nav-link">Pisos disponibles</Link>
+            <Link to="/agentes"  className="footer__nav-link">Nuestro equipo</Link>
+            <Link to="/contacto" className="footer__nav-link">Contacto</Link>
+            <Link to="/reservar" className="footer__nav-link">Reservar cita</Link>
           </nav>
         </div>
 

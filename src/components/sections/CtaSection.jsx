@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 /** CtaSection — full-width call-to-action banner at the bottom of the page */
 function CtaSection() {
   return (
@@ -18,8 +20,8 @@ function CtaSection() {
         </p>
 
         <div className="cta-section__actions">
-          <a href="/pisos"    className="btn-primary">Ver pisos disponibles →</a>
-          <a href="/reservar" className="btn-outline">Reservar cita gratis</a>
+          <Link to="/pisos"    className="btn-primary">Ver pisos disponibles →</Link>
+          <Link to="/reservar" className="btn-outline">Reservar cita gratis</Link>
         </div>
 
       </div>

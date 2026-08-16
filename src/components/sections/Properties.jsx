@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import PropertyCard from '../ui/PropertyCard'
 import { featuredProperties } from '../../data/properties'
 
@@ -12,7 +13,7 @@ function Properties() {
             <p className="section-eyebrow">Pisos disponibles</p>
             <h2 className="section-title">Estos pisos te pueden interesar</h2>
           </div>
-          <a href="/pisos" className="btn-outline">Ver todos →</a>
+          <Link to="/pisos" className="btn-outline">Ver todos →</Link>
         </div>
 
         <div className="properties__grid">
