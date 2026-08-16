@@ -22,6 +22,10 @@ function App() {
         <Route path="/agentes" element={<Agents />} />
         <Route path="/contacto" element={<Contact />} />
         <Route path="/reservar" element={<Booking />} />
+        <Route path="/reservar-cita" element={<Booking />} />
+        <Route path="/reservas" element={<Booking />} />
+        <Route path="/cita" element={<Booking />} />
+        <Route path="*" element={<Home />} />
       </Routes>
 
       <Footer />
