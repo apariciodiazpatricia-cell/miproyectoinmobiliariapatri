@@ -202,7 +202,25 @@ En CSS, a igual especificidad de selector, **la regla que se declara al final de
 - En [`Navbar.jsx`](file:///c:/Proyectos/miproyectoinmobiliariapatri/src/components/layout/Navbar.jsx), un botón accesible con animación CSS transforma las 3 barras en cruz al abrirse.
 - El menú móvil se superpone a pantalla completa con fondo translúcido desenfocado (`backdrop-filter: blur(16px)`), garantizando un diseño limpio y cerrándose automáticamente al pulsar cualquier enlace.
 
-### 3. Optimizaciones Específicas para iOS Safari
+### 3. Geometría y Aspect Ratio de Imágenes (Cero Deformación en WebKit)
+Para erradicar el problema común de WebKit (Safari en iOS) donde las imágenes se estiran verticalmente o los avatares se ovalan:
+- **Aspect Ratio Nativo:** Se asignó la propiedad estándar `aspect-ratio` a cada tipo de elemento visual junto con `object-fit: cover`:
+  - **Tarjetas de Pisos (`.property-card__image-wrapper`):** `aspect-ratio: 16 / 10`.
+  - **Tarjetas de Agentes (`.agent-card__image-wrapper`):** `aspect-ratio: 4 / 5` con `object-position: top center`.
+  - **Avatares de Asesores (`.team-card__avatar-wrapper`):** `aspect-ratio: 1 / 1` con `flex-shrink: 0` y `border-radius: 50%` (círculos perfectos sin ovalación).
+  - **Fotografías de Cabecera y Oficina:** `aspect-ratio: 4 / 3` en escritorio y `16 / 10` en móvil.
+
+### 4. Prevención de Expansión Fantasma en CSS Grid (`min-width: 0` & `minmax(0, 1fr)`)
+- **El Bug de Safari:** Por especificación, las columnas de CSS Grid tienen `min-width: auto`. Si contienen una imagen de alta resolución (ej. 1920px), Safari intenta acomodarla y desborda el ancho de pantalla de 390px del iPhone.
+- **La Solución:** 
+  - Regla global de reset en [`base.css`](file:///c:/Proyectos/miproyectoinmobiliariapatri/src/styles/base.css): `*, *::before, *::after { min-width: 0; }`.
+  - Definición de columnas con `minmax(0, 1fr)` en todas las rejillas para garantizar que el contenedor se ajuste siempre al 100% del viewport del móvil.
+
+### 5. Supresión de Doble Padding en Cabeceras (Heroes)
+- En resoluciones móviles (`<= 768px`), se eliminó el padding acumulado entre el contenedor exterior (`padding: 3.5rem 1.25rem`) y el contenedor interior (`.hero__inner`, `.listings-hero__inner`, `.agents-hero__inner`, `.contact-hero__inner`, `.booking-hero__inner` con `padding: 0`).
+- Esto evita franjas blancas sobredimensionadas y aprovecha el área útil de lectura en iPhone.
+
+### 6. Optimizaciones Específicas para iOS Safari
 - **Eliminación del Auto-zoom en Inputs:** iOS Safari fuerza un zoom no deseado al enfocar `<input>` o `<select>` con fuente menor a `16px`. Se definió `font-size: 16px` en [`base.css`](file:///c:/Proyectos/miproyectoinmobiliariapatri/src/styles/base.css) para todos los campos de formulario.
 - **Ajuste de Tipografía en Rotación:** `-webkit-text-size-adjust: 100%` evita que el navegador redimensione arbitrariamente los textos al cambiar entre horizontal y vertical.
 - **Soporte de Viewport Dinámico:** Empleo de `min-height: 100dvh` (Dynamic Viewport Height) para compensar la barra de herramientas retráctil de Safari móvil.
